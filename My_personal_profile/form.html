@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit-order" method="post">
+      <fieldset>
+        <legend>เลือกน้ำซุปของคุณ</legend>
+        <input type="radio" name="soup" value="หมาล่าน้ำข้น" id="mala-soup" /> 
+        <label for="mala-soup"> หมาล่าน้ำข้น</label> 
+        <input type="radio" name="soup" value="ซุปน้ำดำ" id="black-soup" /> 
+        <label for="black-soup"> ซุปน้ำดำ</label>
+      </fieldset>
+      <div>
+        <h2>เลือกของเพิ่มเติม</h2>
+        <input type="checkbox" name="ingredient" id="tofu" /> <label for="tofu"> เต้าหู้</label> <input type="checkbox" name="ingredient" id="chicken" /> <label for="chicken"> เนื้อไก่</label> <input type="checkbox" name="rice" id="rice" />
+        <label for="rice">ข้าว</label>
+
+        <h2>รับกี่จานดีคะ</h2>
+        <input type="number" value="1" name="quantity" />
+      </div>
+      <button type="submit">สั่งรายการที่เลือก</button>
+    </form>
+    <form action="/submit-order" method="post">
+      <h1>form</h1>
+      <label for="coffee">กรอกกาแฟของคุณ</label>
+      <input id="coffee" type="text" placeholder="ใส่กาแฟที่คุณชอบ" name="value" />
+      <div>
+        <label for="mesi">Mesi</label>
+        <input type="radio" name="player" id="mesi" value="Mesi" />
+        <label for="ronal">Ronal</label>
+        <input type="radio" name="player" id="ronal" value="Ronal" />
+      </div>
+
+      <div>
+        <h2>เลือกของที่จะใส่เพิ่มเติม</h2>
+        <label for="khaidao"
+          >ไข่ดาว
+          <input type="checkbox" id="khaidao" name="extra" value="ไข่ดาว" />
+        </label>
+        <label for="extrafood"
+          >พิเศษ
+          <input type="checkbox" id="extrafood" name="extra" value="พิเศษ" />
+        </label>
+        <label for="soup"
+          >ซุปน้ำดำ
+          <input type="checkbox" id="soup" name="extra" value="ซุป" />
+        </label>
+      </div>
+      <button type="submit">submit</button>
+    </form>
+
+    <form action="https://www.google.com/search" method="get">
+      <input type="text" name="q" />
+      <label for="size">เลือก Size </label>
+      <select name="" id="size">
+        <option value="big">จานใหญ่</option>
+        <option value="medium">จานกลาง</option>
+        <option value="small">จานเล็ก</option>
+      </select>
+    </form>
+  </body>
+</html>

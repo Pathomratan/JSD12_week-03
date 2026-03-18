@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form - Boom Boom Hammer</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        fieldset { margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        legend { font-weight: bold; padding: 0 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        table td { padding: 8px; vertical-align: middle; }
+        .summary-box { 
+            background-color: #f9f9f9; 
+            padding: 15px; 
+            border: 2px solid #007bff; 
+            border-radius: 8px; 
+            margin-top: 20px;
+            display: none;
+        }
+        .summary-box h3 { margin-top: 0; color: #007bff; }
+        .total-line { font-size: 1.2em; color: #d9534f; font-weight: bold; }
+        .btn-calculate { 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 1em;
+        }
+        .btn-calculate:hover { background-color: #218838; }
+        .item-row { border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">🛒 Boom Boom Hammer Order Form</h2>
+
+    <!-- 1. Product Selection -->
+    <fieldset>
+        <legend>1. Choose Your Products (Select multiple sizes)</legend>
+        <form id="orderForm">
+            <table>
+                <tr class="item-row">
+                    <td><input type="checkbox" name="productSize" value="Small" id="Smallsize" data-price="500"></td>
+                    <td><label for="Smallsize">ไซค์เล็ก (500 บาท)</label></td>
+                    <td>
+                        <select id="smallQty">
+                            <option value="1">1 ชิ้น</option>
+                            <option value="2">2 ชิ้น</option>
+                            <option value="3">3 ชิ้น</option>
+                            <option value="4">4 ชิ้น</option>
+                            <option value="5">5 ชิ้น</option>
+                            <option value="6">6 ชิ้น</option>
+                            <option value="7">7 ชิ้น</option>
+                            <option value="8">8 ชิ้น</option>
+                            <option value="9">9 ชิ้น</option>
+                            <option value="10">10 ชิ้น</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td><input type="checkbox" name="productSize" value="Medium" id="Mediumsize" data-price="1000"></td>
+                    <td><label for="Mediumsize">ไซค์กลาง (1,000 บาท)</label></td>
+                    <td>
+                        <select id="mediumQty">
+                            <option value="1">1 ชิ้น</option>
+                            <option value="2">2 ชิ้น</option>
+                            <option value="3">3 ชิ้น</option>
+                            <option value="4">4 ชิ้น</option>
+                            <option value="5">5 ชิ้น</option>
+                            <option value="6">6 ชิ้น</option>
+                            <option value="7">7 ชิ้น</option>
+                            <option value="8">8 ชิ้น</option>
+                            <option value="9">9 ชิ้น</option>
+                            <option value="10">10 ชิ้น</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td><input type="checkbox" name="productSize" value="Large" id="Largesize" data-price="1500"></td>
+                    <td><label for="Largesize">ไซค์ใหญ่ (1,500 บาท)</label></td>
+                    <td>
+                        <select id="largeQty">
+                            <option value="1">1 ชิ้น</option>
+                            <option value="2">2 ชิ้น</option>
+                            <option value="3">3 ชิ้น</option>
+                            <option value="4">4 ชิ้น</option>
+                            <option value="5">5 ชิ้น</option>
+                            <option value="6">6 ชิ้น</option>
+                            <option value="7">7 ชิ้น</option>
+                            <option value="8">8 ชิ้น</option>
+                            <option value="9">9 ชิ้น</option>
+                            <option value="10">10 ชิ้น</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+
+    <!-- 2. Contact Information in Table -->
+    <fieldset>
+        <legend>2. Contact Information</legend>
+        <form id="contactForm">
+            <table>
+                <tr>
+                    <td><label for="firstName">First Name:</label></td>
+                    <td><input type="text" id="firstName" placeholder="ชื่อ" required style="width: 90%;"></td>
+                    <td><label for="lastName">Last Name:</label></td>
+                    <td><input type="text" id="lastName" placeholder="นามสกุล" required style="width: 90%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" placeholder="example@mail.com" required style="width: 90%;"></td>
+                    <td><label for="phone">Phone:</label></td>
+                    <td><input type="tel" id="phone" placeholder="08x-xxx-xxxx" required style="width: 90%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td colspan="3"><textarea id="address" rows="2" style="width: 96%;" placeholder="ที่อยู่ในการจัดส่ง"></textarea></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+
+    <!-- 3. Payment Method -->
+    <fieldset>
+        <legend>3. Choose Your Payment Method</legend>
+        <form id="paymentForm">
+            <input type="radio" name="paymentMethod" value="Credit Card" id="payCredit" checked>
+            <label for="payCredit">Credit Card</label> &nbsp;
+            <input type="radio" name="paymentMethod" value="Digital Wallet" id="payDigital">
+            <label for="payDigital">Digital Wallet</label> &nbsp;
+            <input type="radio" name="paymentMethod" value="Cash" id="payCash">
+            <label for="payCash">Cash on Delivery</label>
+        </form>
+    </fieldset>
+
+    <div style="text-align: center;">
+        <button type="button" class="btn-calculate" onclick="processOrder()">Check Out & Summarize</button>
+    </div>
+
+    <!-- 4. Summary Output -->
+    <div id="summaryBox" class="summary-box">
+        <h3>📄 Order Summary</h3>
+        <div id="customerSummary"></div>
+        <hr>
+        <div id="productSummaryList"></div>
+        <hr>
+        <table style="width: 300px; margin-left: 0;">
+            <tr>
+                <td>Subtotal:</td>
+                <td id="subtotalVal" style="text-align: right;">0.00</td>
+                <td>บาท</td>
+            </tr>
+            <tr>
+                <td>Shipping Fee:</td>
+                <td id="shippingVal" style="text-align: right;">50.00</td>
+                <td>บาท</td>
+            </tr>
+            <tr>
+                <td>VAT (7%):</td>
+                <td id="vatVal" style="text-align: right;">0.00</td>
+                <td>บาท</td>
+            </tr>
+            <tr class="total-line">
+                <td>Total:</td>
+                <td id="totalVal" style="text-align: right;">0.00</td>
+                <td>บาท</td>
+            </tr>
+        </table>
+        <p><strong>Payment Method:</strong> <span id="paymentSummary"></span></p>
+        <p style="color: #28a745; font-weight: bold; text-align: center;">ขอบคุณที่ใช้บริการครับ/ค่ะ! ⚡🔨</p>
+    </div>
+
+    <script>
+        function processOrder() {
+            // 1. Get Selected Products
+            const selectedCheckboxes = document.querySelectorAll('input[name="productSize"]:checked');
+            if (selectedCheckboxes.length === 0) {
+                alert("กรุณาเลือกสินค้าอย่างน้อย 1 อย่างครับ!");
+                return;
+            }
+
+            // 2. Get Contact Data
+            const fName = document.getElementById('firstName').value;
+            const lName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const addr = document.getElementById('address').value;
+
+            if (!fName || !lName || !email || !phone || !addr) {
+                alert("กรุณากรอกข้อมูลติดต่อให้ครบถ้วน!");
+                return;
+            }
+
+            // 3. Get Payment Data
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            // 4. Calculations & Product List Summary
+            let subtotal = 0;
+            let productListHTML = "<strong>Selected Products:</strong><ul>";
+
+            selectedCheckboxes.forEach(cb => {
+                let size = cb.value;
+                let price = parseInt(cb.getAttribute('data-price'));
+                let qty = 0;
+                let sizeText = "";
+
+                if (size === "Small") {
+                    qty = parseInt(document.getElementById('smallQty').value);
+                    sizeText = "ไซค์เล็ก";
+                } else if (size === "Medium") {
+                    qty = parseInt(document.getElementById('mediumQty').value);
+                    sizeText = "ไซค์กลาง";
+                } else if (size === "Large") {
+                    qty = parseInt(document.getElementById('largeQty').value);
+                    sizeText = "ไซค์ใหญ่";
+                }
+
+                let itemTotal = price * qty;
+                subtotal += itemTotal;
+                productListHTML += `<li>${sizeText} - ${qty} ชิ้น (ชิ้นละ ${price.toLocaleString()} บาท) = ${itemTotal.toLocaleString()} บาท</li>`;
+            });
+
+            productListHTML += "</ul>";
+
+            const shipping = 50;
+            const vat = subtotal * 0.07;
+            const total = subtotal + shipping + vat;
+
+            // 5. Display Summary
+            document.getElementById('customerSummary').innerHTML = `
+                <strong>Customer:</strong> ${fName} ${lName}<br>
+                <strong>Contact:</strong> ${phone} | ${email}<br>
+                <strong>Address:</strong> ${addr}
+            `;
+
+            document.getElementById('productSummaryList').innerHTML = productListHTML;
+
+            document.getElementById('subtotalVal').innerText = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('shippingVal').innerText = shipping.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('vatVal').innerText = vat.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('totalVal').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('paymentSummary').innerText = paymentMethod;
+
+            document.getElementById('summaryBox').style.display = 'block';
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>
