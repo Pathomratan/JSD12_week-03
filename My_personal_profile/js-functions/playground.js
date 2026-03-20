@@ -1,0 +1,1 @@
+console.log(process);  //process is a global object in Node.js that provides information about the current Node.js process and allows you to interact with it. It contains properties and methods that can be used to access environment variables, handle signals, manage the process's lifecycle, and more.
